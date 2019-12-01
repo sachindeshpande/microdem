@@ -97,6 +97,8 @@ if __name__ == "__main__":
     except KeyError:
       logger.info("Skipping Stackdriver Profiler Python agent initialization. Set environment variable ENABLE_PROFILER=1 to enable.")
 
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "microdemo.json"
+
     try:
         sampler = always_on.AlwaysOnSampler()
         exporter = stackdriver_exporter.StackdriverExporter()
